@@ -12,7 +12,7 @@ jobs:
                 echo "OS: Ubuntu"
                 echo "Hostname: $HOSTNAME"
                 echo "User: $USER"
-                docker -v"
+                docker -version"
                 python3 -version"
                 node -v"
                 git -v"
