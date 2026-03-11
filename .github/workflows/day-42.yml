@@ -12,10 +12,10 @@ jobs:
                 echo "OS: Ubuntu"
                 echo "Hostname: $HOSTNAME"
                 echo "User: $USER"
-                docker --version"
-                python3 -version"
-                node -v"
-                git -v"
+                docker --version
+                python3 -version
+                node -v
+                git -v
 
     windows_job:
         runs-on: windows-latest
