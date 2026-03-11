@@ -13,7 +13,7 @@ jobs:
                 echo "Hostname: $HOSTNAME"
                 echo "User: $USER"
                 docker --version
-                python3 -version
+                python --version
                 node -v
                 git -v
 
