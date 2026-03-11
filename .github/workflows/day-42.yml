@@ -1,0 +1,33 @@
+name: day-42
+
+on:
+    workflow_dispatch:
+
+jobs:
+    ubuntu_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Ubuntu Job
+              run: |
+                echo "OS: Ubuntu"
+                echo "Hostname: $HOSTNAME"
+                echo "User: $USER"
+
+    windows_job:
+        runs-on: windows-latest
+        steps:
+            - name: Windows Job
+              shell: pwsh
+              run: |
+                echo "OS: Windows"
+                echo "Hostname: $env:COMPUTERNAME"
+                echo "User: $env:USERNAME"    
+
+    macos_job:
+        runs-on: macos-latest
+        steps:
+            - name: MacOS Job
+              run: |
+                echo "OS: MacOS"
+                echo "Hostname: $HOSTNAME"
+                echo "User: $USER"
