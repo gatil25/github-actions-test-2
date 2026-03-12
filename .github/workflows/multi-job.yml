@@ -1,0 +1,23 @@
+name: day-43
+
+on:
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build App
+              run: echo "Building the app"
+    test:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Test App
+              run: echo "Running Tests"
+    deploy:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy App
+              run: echo "Deploying" 
