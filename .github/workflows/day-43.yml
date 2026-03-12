@@ -1,0 +1,31 @@
+name: day-42-task2
+
+on:
+    workflow_dispatch:
+
+env:
+    APP_NAME: myapp
+
+jobs:
+    display_vars:
+        runs-on: ubuntu-latest
+        env:
+            ENVIRONMENT: staging
+        steps:
+            - name: Print Variables
+              env:
+                VERSION: 1.0.0
+              run: |
+                echo "--Custom Env Variables"
+                echo "App Name: $APP_NAME"
+                echo "Environment: $ENVIRONMENT"
+                echo "Version: $VERSION"
+
+                echo "--GitHub Context Variable"
+                echo "Commit SHA: ${{ github.sha }}"
+                echo "Triggered by (Actor): ${{ github.actor }}"
+
+                
+
+                 
+
