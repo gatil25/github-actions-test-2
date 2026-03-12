@@ -13,8 +13,10 @@ jobs:
             - name: Error step
               id: step_error
               continue-on-error: true
-              run: echo "Simulating Failure"
-              
+              run: |
+                echo "Simulating Failure"
+                exit 1
+
             - name: Check Previous step
               if: steps.step_error.outcome == 'failure'
               run: echo "Previous Step failed but I am running"
