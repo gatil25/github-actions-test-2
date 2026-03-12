@@ -1,0 +1,21 @@
+name: day-43-task3
+
+on:
+    workflow_dispatch:
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        outputs:
+            current_date: ${{ steps.date_step.outputs.date}} 
+        steps:
+            - name: Generate date
+              id: date_step
+              run: echo "date=$(date)" >> $GITHUB_OUTPUT"
+    
+    job2:
+        runs-on: ubuntu-latest
+        needs: job1
+        steps:
+            - name: Print the date from job1
+              run: echo "The date received from job1 is {{ needs.job1.outputs.current_date }}"
