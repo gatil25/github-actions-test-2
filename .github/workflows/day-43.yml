@@ -1,4 +1,4 @@
-name: day-42-task2
+name: day-43-task2
 
 on:
     workflow_dispatch:
