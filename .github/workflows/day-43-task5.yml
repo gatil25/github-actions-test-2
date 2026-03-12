@@ -1,0 +1,34 @@
+name: day-43-task5
+
+on:
+    push:
+        branches:
+            - '**'
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Linter
+              run: echo "Linting Code"
+
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Testing Code
+              run: echo "testing code"
+    
+    summary:
+        runs-on: ubuntu-latest
+        needs: [ lint, test ]
+        steps:
+            - name: Summary
+              run: |
+                if [[ "${{github.ref}}" == "refs/heads/main" ]]; then
+                    echo "This is Main branch Push"
+                else
+                    echo "This is feature branch push"
+                fi
+                echo "Commit Message: ${{ github.event.head_commit.message }}"
+
+                  
