@@ -1,0 +1,22 @@
+name: day-44-task-1
+
+on:
+    workflow_dispatch:
+jobs:
+    check-secrets:
+        runs-on: ubuntu-latest
+        steps:
+            - name: verify secrets
+              env:
+                THE_SECRET: ${{ secrets.MY_SECRET_MESSAGE }}
+              run: |
+                if [ -n "$THE_SECRET" ]; then
+                    echo "The secret is set: true"
+                else
+                    echo "The secret is set: false"
+                    exit 1
+                fi
+
+            - name: Intentional Leak attempt
+              run: echo " ${{ secrets.MY_SECRET_MESSAGE }}"
+                
