@@ -1,0 +1,26 @@
+name: day-44-task4
+
+on:
+    workflow_dispatch:
+jobs:
+    build_and_report:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Generate a file
+              run: |
+                echo "Timestamp: $(date)" >> time_report.txt
+            - name: Upload Artifacts
+              uses: actions/upload-artifact@v4  
+              with:
+                name: Uploaded-Artifacts
+                path: time_report.txt
+    Artifact_Use:
+        runs-on: ubuntu-latest
+        needs: build_and_report
+        steps:
+            - name: Download from job 1
+              uses: actions/download-artifact@v4
+              with:
+                name: Uploaded-Artifacts
+            - name: print artifact
+              run:  cat time_report.txt
