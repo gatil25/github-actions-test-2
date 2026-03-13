@@ -1,1 +1,1 @@
-# github-actions-test-2
+![Docker Build Status] ([![Day 45 Tasks](https://github.com/gatil25/github-actions-test-2/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/gatil25/github-actions-test-2/actions/workflows/docker-publish.yml))
