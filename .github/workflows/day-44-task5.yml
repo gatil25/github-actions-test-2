@@ -1,0 +1,15 @@
+name: day-44-task5
+
+on:
+    workflow_dispatch:
+
+jobs:
+    test_script:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Set script permissions
+              run: chmod +x check_system.sh
+            - name: Execute script
+              run: ./check_system.sh
