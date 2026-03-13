@@ -1,0 +1,20 @@
+name: day-44-task2
+
+on:
+    workflow_dispatch:
+jobs:
+    build_and_report:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Generate a file
+              run: |
+                echo "Status: Success" >> report1.txt
+                echo "Timestamp: $(date)"" >> report2.txt
+            - name: Upload Artifacts
+              uses: actions/upload-artifact@v4  
+              with:
+                name: Uploaded Artifacts
+                path: |
+                    report1.txt
+                    report2.txt
+                retention-days: 5    
